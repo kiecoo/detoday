@@ -1,19 +1,15 @@
-
-// 555
 <!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
     <script src="https://unpkg.com/npm-require"></script>
+    
   </head>
   <body>
     <script>
-    
-    var makeGitterURL1 = require('./index.js')
-
-    
 		var bel = require('bel')
-		var csjs = require('csjs-inject')		
+		var csjs = require('csjs-inject')
+	
 		var css1 = csjs`
 		   body{
 		       background:pink; 
@@ -46,23 +42,28 @@
 		      padding:1px;
 		    }
 		`
-		
 		function makeGitterChatbox (profile) {
 		  return bel`
 		    <div class=${css1.chatbox}>
 		<img src="${profile.photo}" class=${css1.photo1}>
 		      <h1> ${profile.name} </h1>
-		      <iframe class=${css1.iframe} src=${makeGitterURL1(profile.username)}></iframe>
+		      <iframe class=${css1.iframe} src=${makeGitterURL(profile.username)}></iframe>
 		    </div>
 		  `
 		}
-	    
-		var exampleProfile = {
-		  name: 'nina',
-		  username: 'ninabreznik',
-		  photo:'https://nomadlist.com/assets/img/cities/phuket-thailand-500px.jpg'
-		}
   
+	        //difference from the repo of makeGitterChatbox https://github.com/kiecoo/makeGitterChatbox/blob/master/index.html
+		//var x = makeGitterChatbox(exampleProfile)
+		//document.body.appendChild(x)
+      
+      function makeGitterURL (username) {
+  return `https://gitter.im/${username}/~embed`
+}
+var exampleProfile = {
+  name: 'nina',
+  username: 'ninabreznik',
+  photo:'https://nomadlist.com/assets/img/cities/phuket-thailand-500px.jpg'
+}
 	        //difference from the repo of makeGitterChatbox https://github.com/kiecoo/makeGitterChatbox/blob/master/index.html
 		var x = makeGitterChatbox(exampleProfile)
 		document.body.appendChild(x)

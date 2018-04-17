@@ -1,4 +1,3 @@
-//123
 <!doctype html>
 <html>
   <head>
@@ -9,7 +8,7 @@
   <body>
     <script>
    
-var makeLinkUrl = require('./index.js')   
+   
 var bel = require('bel')
 var csjs = require('csjs-inject')
   
@@ -136,8 +135,10 @@ function profile () {
   var github            = `https://github.com/${username}`
   var codepen           = `https://codepen.io/${username}`
   
-  
-  var gitter           = makeLinkUrl (username)
+  function makeLinkUrl (username) {
+    return  `https://gitter.im/${username}/~embed`
+  }
+ 
 // HTML
   var cardContainer = bel`
     <div class=${css.cardContainer}>
@@ -156,13 +157,10 @@ function profile () {
                     CARD EVENT LISTENERS
   ---------------------------------------------------------- */
   /* --------------- hover & unhover the card ---------------*/
-  var cardContainer_hover =
-       bel`
+  var cardContainer_hover = bel`
     <div class=${css.cardContainer_hover}>
-      <div class=${css.cardGitterChat} ><iframe class=${css.iframe} src=${ gitter}></iframe></div>
-      `
-      bel`
-    <div class=${css.cardContainer_hover}>      
+      <div class=${css.cardGitterChat} ><iframe class=${css.iframe} src=${ makeLinkUrl (username)}></iframe></div>
+      
       <div class=${css.cardSocial}>
         <a href=${twitter} target='_blank'>
           <i class="${css.cardSocial_fontawesome} fa fa-twitter" aria-hidden="true"></i></a>

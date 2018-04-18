@@ -1,5 +1,3 @@
-// index.js
-
 var makeLinkUrl = require('./make-gitter-url.js')  
 
 module.exports = makeGitterChat

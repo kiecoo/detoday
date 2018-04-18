@@ -3,7 +3,7 @@
 
 
 var makeGitterChat = require('./make-gitter-chat.js')  
-var get_github_data = require('get-github-data')
+var get_github_data = require('get-userprofiles-from-github')
 
 module.exports = getDataProfile
 

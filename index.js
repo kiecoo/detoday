@@ -3,22 +3,23 @@
 
 
 var makeGitterChat = require('./make-gitter-chat.js')  
-var data = require('./get-github-data.js')
+var get_github_data = require('get-github-data')
 
-module.exports = profile
+module.exports = getDataProfile
 
-
-
+function getDataProfile () {
+  get_github_data(profile)
+}
 
 function profile (data) {
-  var ninasProfile      = data[1]
+  var ninasProfile      = data[0]
   var username          = ninasProfile.username
   
-  var name              = 'Nina'
+//  var name              = 'Nina'
  
-  var cardText          = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru '
-  var imageUrl          = 'https://nomadlist.com/assets/img/cities/phuket-thailand-500px.jpg'
-  var city              = 'Berlin'
+//  var cardText          = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostru '
+//  var imageUrl          = 'https://nomadlist.com/assets/img/cities/phuket-thailand-500px.jpg'
+//  var city              = 'Berlin'
   var twitter           = `https://twitter.com/${username}`
   var github            = `https://github.com/${username}`
   var codepen           = `https://codepen.io/${username}`
